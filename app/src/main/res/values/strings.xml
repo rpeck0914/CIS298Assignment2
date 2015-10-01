@@ -3,4 +3,35 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <string name="main_header">Convert:</string>
+    <string name="from_header">From</string>
+    <string name="to_header">To</string>
+
+    <string name="celsius_title">Celsius</string>
+    <string name="fahrenheit_title">Fahrenheit</string>
+    <string name="kelvin_title">Kelvin</string>
+    <string name="rankin_title">Rankin</string>
+
+    <string name="convert_button">CONVERT</string>
+
+    <string name="conversion_text">100.0 &#176;C = 100.0 &#176;F</string>
+    <string name="equation_text">[&#176;F] = ([&#176;C] x 9/5) + 32</string>
+
+    <string name="c_to_f">[&#176;F] = ([&#176;C] x 9/5) + 32</string>
+    <string name="c_to_k">[K] = [&#176;C] + 273.15</string>
+    <string name="c_to_r">[&#176;R] = ([&#176;C] + 273.15) x 9/5</string>
+
+    <string name="f_to_c">[&#176;C] = ([&#176;] - 32) x 5/9</string>
+    <string name="f_to_k"></string>
+    <string name="f_to_r"></string>
+
+    <string name="k_to_c">[&#176;C] = [K] - 273.15</string>
+    <string name="k_to_f"></string>
+    <string name="k_to_r"></string>
+
+    <string name="r_to_c">[&#176;C] = ([&#176;R] - 491.67) x 5/9</string>
+    <string name="r_to_f"></string>
+    <string name="r_to_k"></string>
+
 </resources>
