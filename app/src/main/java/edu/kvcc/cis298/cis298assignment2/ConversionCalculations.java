@@ -36,17 +36,17 @@ public class ConversionCalculations {
 
         if (mFromTemp == 0 && mToTemp == 2) {
             mConvertedTemp = mUserInput + 273.15;
-            mConversionType = "c_to_k";
+            mConversionType = "[K] = ([°C] + 273.15)";
         }
 
         if (mFromTemp == 0 && mToTemp == 3) {
             mConvertedTemp = (mUserInput + 273.15) * 9/5;
-            mConversionType = "c_to_r";
+            mConversionType = "[°R] = ([°C] + 273.15) x 9/5";
         }
 
         if (mFromTemp == 1 && mToTemp == 0) {
             mConvertedTemp = (mUserInput - 32) * 5/9;
-            mConversionType = "f_to_c";
+            mConversionType = "[°C] = ([°F] - 32) x 5/9";
         }
 
         if (mFromTemp == 1 && mToTemp == 2) {
