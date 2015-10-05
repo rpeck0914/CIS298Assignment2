@@ -31,8 +31,7 @@ public class ConversionCalculations {
 
         if (mFromTemp == 0 && mToTemp == 1) {
             mConvertedTemp = mUserInput * 9/5 + 32;
-            mConversionType = "Hello";
-            //Resources.getSystem().getString(R.string.c_to_f);
+            mConversionType = "[°F] = ([°C] x 9/5) + 32";
         }
 
         if (mFromTemp == 0 && mToTemp == 2) {
@@ -51,15 +50,35 @@ public class ConversionCalculations {
         }
 
         if (mFromTemp == 1 && mToTemp == 2) {
-
+            mConversionType = "f to k";
         }
 
         if (mFromTemp == 1 && mToTemp == 3) {
-
+            mConversionType = "f to r";
         }
 
         if (mFromTemp == 2 && mToTemp == 0) {
+            mConversionType = "k to c";
+        }
 
+        if (mFromTemp == 2 && mToTemp == 1) {
+            mConversionType = "k to f";
+        }
+
+        if (mFromTemp == 2 && mToTemp == 3) {
+            mConversionType = "k to r";
+        }
+
+        if (mFromTemp == 3 && mToTemp == 0) {
+            mConversionType = "r to c";
+        }
+
+        if(mFromTemp == 3 && mToTemp == 1) {
+            mConversionType = "r to f";
+        }
+
+        if (mFromTemp == 3 && mToTemp == 2) {
+            mConversionType = "r to k";
         }
     }
 
@@ -67,15 +86,7 @@ public class ConversionCalculations {
         return mConvertedTemp;
     }
 
-    public void setmConvertedTemp(double mConvertedTemp) {
-        this.mConvertedTemp = mConvertedTemp;
-    }
-
     public String getmConversionType() {
         return mConversionType;
-    }
-
-    public void setmConversionType(String mConversionType) {
-        this.mConversionType = mConversionType;
     }
 }

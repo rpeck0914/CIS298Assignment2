@@ -135,7 +135,6 @@
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:padding="15dp"
-        android:text="@string/conversion_text"
         android:gravity="center_horizontal"
         android:textSize="30dp"/>
 
@@ -144,7 +143,6 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:padding="10dp"
-        android:text="@string/equation_text"
         android:gravity="center_horizontal"
         android:textSize="15dp"/>
 

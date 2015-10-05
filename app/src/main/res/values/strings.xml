@@ -18,7 +18,7 @@
     <string name="conversion_text">100.0 &#176;C = 100.0 &#176;F</string>
     <string name="equation_text">[&#176;F] = ([&#176;C] x 9/5) + 32</string>
 
-    <string name="c_to_f">[&#176;F] = ([&#176;C] x 9/5) + 32</string>
+
     <string name="c_to_k">[K] = [&#176;C] + 273.15</string>
     <string name="c_to_r">[&#176;R] = ([&#176;C] + 273.15) x 9/5</string>
 

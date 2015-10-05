@@ -48,12 +48,12 @@ public class TemperatureConverter extends AppCompatActivity {
     private void UpdateSelectedTemps() {
         if(mFromRadioGroup.getCheckedRadioButtonId() == mFromCelsius.getId()) {
             mFromButtonSelected = 0;
-            mFromTempSymbol = "&#176;C";
+            mFromTempSymbol = "°C";
         }
 
         if(mFromRadioGroup.getCheckedRadioButtonId() == mFromFahrenheit.getId()) {
             mFromButtonSelected = 1;
-            mFromTempSymbol = "&#176;F";
+            mFromTempSymbol = "°F";
         }
 
         if(mFromRadioGroup.getCheckedRadioButtonId() == mFromKelvin.getId()) {
@@ -63,17 +63,17 @@ public class TemperatureConverter extends AppCompatActivity {
 
         if(mFromRadioGroup.getCheckedRadioButtonId() == mFromRankin.getId()) {
             mFromButtonSelected = 3;
-            mFromTempSymbol = "&#176;R";
+            mFromTempSymbol = "°R";
         }
 
         if(mToRadioGroup.getCheckedRadioButtonId() == mToCelsius.getId()) {
             mToButtonSelected = 0;
-            mToTempSymbol = "&#176;C";
+            mToTempSymbol = "°C";
         }
 
         if(mToRadioGroup.getCheckedRadioButtonId() == mToFahrenheit.getId()) {
             mToButtonSelected = 1;
-            mToTempSymbol = "&#176;F";
+            mToTempSymbol = "°F";
         }
 
         if(mToRadioGroup.getCheckedRadioButtonId() == mToKelvin.getId()) {
@@ -83,7 +83,7 @@ public class TemperatureConverter extends AppCompatActivity {
 
         if(mToRadioGroup.getCheckedRadioButtonId() == mToRankin.getId()) {
             mToButtonSelected = 3;
-            mToTempSymbol = "&#176;R";
+            mToTempSymbol = "°R";
         }
 
     }
@@ -108,6 +108,9 @@ public class TemperatureConverter extends AppCompatActivity {
         mToKelvin = (RadioButton) findViewById(R.id.to_kelvin);
         mToRankin = (RadioButton) findViewById(R.id.to_rankin);
 
+        mEquationText = (TextView) findViewById(R.id.equation_output);
+        mConversionText = (TextView) findViewById(R.id.conversion_output);
+
         mConvertButton = (Button) findViewById(R.id.convert_button);
         mConvertButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,8 +123,8 @@ public class TemperatureConverter extends AppCompatActivity {
                 mEquation = convertTemps.getmConversionType();
                 mConvertedTemp = convertTemps.getmConvertedTemp()+"";
 
-                mEquationText.setText(mEquation);
-                mConversionText.setText(mUserInput+"" + mFromTempSymbol + " = " + mConvertedTemp + mToTempSymbol);
+                mEquationText.setText(mEquation+"");
+                mConversionText.setText(mUserInputVar+"" + mFromTempSymbol + " = " + mConvertedTemp + mToTempSymbol);
 
             }
         });
