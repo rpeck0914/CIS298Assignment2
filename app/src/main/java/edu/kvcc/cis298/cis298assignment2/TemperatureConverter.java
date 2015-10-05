@@ -15,6 +15,15 @@ import android.widget.TextView;
 public class TemperatureConverter extends AppCompatActivity {
 
     private EditText mUserInput;
+    private double mUserInputVar;
+
+    private int mFromButtonSelected;
+    private int mToButtonSelected;
+    private String mFromTempSymbol;
+    private String mToTempSymbol;
+
+    private String mConvertedTemp;
+    private String mEquation;
 
     private RadioGroup mFromRadioGroup;
     private RadioGroup mToRadioGroup;
@@ -34,17 +43,48 @@ public class TemperatureConverter extends AppCompatActivity {
     private TextView mConversionText;
     private TextView mEquationText;
 
-    private ConversionCalculations[] mConversions = new ConversionCalculations[]{
-
-
-    };
+    private ConversionCalculations convertTemps;
 
     private void UpdateSelectedTemps() {
+        if(mFromRadioGroup.getCheckedRadioButtonId() == mFromCelsius.getId()) {
+            mFromButtonSelected = 0;
+            mFromTempSymbol = "&#176;C";
+        }
 
+        if(mFromRadioGroup.getCheckedRadioButtonId() == mFromFahrenheit.getId()) {
+            mFromButtonSelected = 1;
+            mFromTempSymbol = "&#176;F";
+        }
 
-    }
+        if(mFromRadioGroup.getCheckedRadioButtonId() == mFromKelvin.getId()) {
+            mFromButtonSelected = 2;
+            mFromTempSymbol = "K";
+        }
 
-    private void CheckSelectedTemps(int fromSelectedId, int toSelectedId){
+        if(mFromRadioGroup.getCheckedRadioButtonId() == mFromRankin.getId()) {
+            mFromButtonSelected = 3;
+            mFromTempSymbol = "&#176;R";
+        }
+
+        if(mToRadioGroup.getCheckedRadioButtonId() == mToCelsius.getId()) {
+            mToButtonSelected = 0;
+            mToTempSymbol = "&#176;C";
+        }
+
+        if(mToRadioGroup.getCheckedRadioButtonId() == mToFahrenheit.getId()) {
+            mToButtonSelected = 1;
+            mToTempSymbol = "&#176;F";
+        }
+
+        if(mToRadioGroup.getCheckedRadioButtonId() == mToKelvin.getId()) {
+            mToButtonSelected = 2;
+            mToTempSymbol = "K";
+        }
+
+        if(mToRadioGroup.getCheckedRadioButtonId() == mToRankin.getId()) {
+            mToButtonSelected = 3;
+            mToTempSymbol = "&#176;R";
+        }
 
     }
 
@@ -72,9 +112,16 @@ public class TemperatureConverter extends AppCompatActivity {
         mConvertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int selectedFromId = mFromRadioGroup.getCheckedRadioButtonId();
-                int selectedToId = mToRadioGroup.getCheckedRadioButtonId();
+                UpdateSelectedTemps();
 
+                mUserInputVar = Double.parseDouble(mUserInput.getText().toString());
+                convertTemps = new ConversionCalculations(mFromButtonSelected, mToButtonSelected,mUserInputVar);
+
+                mEquation = convertTemps.getmConversionType();
+                mConvertedTemp = convertTemps.getmConvertedTemp()+"";
+
+                mEquationText.setText(mEquation);
+                mConversionText.setText(mUserInput+"" + mFromTempSymbol + " = " + mConvertedTemp + mToTempSymbol);
 
             }
         });
