@@ -11,6 +11,9 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.IOException;
 
 public class TemperatureConverter extends AppCompatActivity {
 
@@ -117,17 +120,57 @@ public class TemperatureConverter extends AppCompatActivity {
             public void onClick(View v) {
                 UpdateSelectedTemps();
 
-                mUserInputVar = Double.parseDouble(mUserInput.getText().toString());
-                convertTemps = new ConversionCalculations(mFromButtonSelected, mToButtonSelected,mUserInputVar);
+                try {
+                    mUserInputVar = Double.parseDouble(mUserInput.getText().toString());
+                    convertTemps = new ConversionCalculations(mFromButtonSelected, mToButtonSelected, mUserInputVar);
 
-                mEquation = convertTemps.getmConversionType();
-                mConvertedTemp = convertTemps.getmConvertedTemp()+"";
+                    if(mFromTempSymbol == null || mToTempSymbol == null) {
+                        throw new MyExceptions();
+                    }
 
-                mEquationText.setText(mEquation+"");
-                mConversionText.setText(mUserInputVar+"" + mFromTempSymbol + " = " + mConvertedTemp + mToTempSymbol);
+                    mEquation = convertTemps.getmConversionType();
+                    mConvertedTemp = String.format("%.2f", convertTemps.getmConvertedTemp());
+
+                    mEquationText.setText(mEquation + "");
+                    mConversionText.setText(mUserInputVar + "" + mFromTempSymbol + " = " + mConvertedTemp + mToTempSymbol);
+                }
+                catch (NumberFormatException e) {
+                    Toast.makeText(TemperatureConverter.this,"Please Enter A Number",Toast.LENGTH_SHORT).show();
+                }
+
+                catch (MyExceptions e) {
+                    Toast.makeText(TemperatureConverter.this,"Please Selected Temperatures To Be Converted",Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
+
+        if (savedInstanceState != null) {
+            mUserInputVar = savedInstanceState.getDouble("User_Input", 0);
+            mUserInput.setText(mUserInputVar + "");
+
+            mConvertedTemp = savedInstanceState.getString("Conversion_Text");
+            mEquation = savedInstanceState.getString("Equation_Text");
+
+            mFromTempSymbol = savedInstanceState.getString("From_Symbol");
+            mToTempSymbol = savedInstanceState.getString("To_Symbol");
+
+            if (mFromTempSymbol != null) {
+                mEquationText.setText(mEquation + "");
+                mConversionText.setText(mUserInputVar + "" + mFromTempSymbol + " = " + mConvertedTemp + mToTempSymbol);
+            }
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putDouble("User_Input", mUserInputVar);
+        outState.putString("From_Symbol", mFromTempSymbol);
+        outState.putString("To_Symbol", mToTempSymbol);
+        outState.putString("Conversion_Text", mConvertedTemp);
+        outState.putString("Equation_Text", mEquation);
     }
 
     @Override

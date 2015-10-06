@@ -50,35 +50,43 @@ public class ConversionCalculations {
         }
 
         if (mFromTemp == 1 && mToTemp == 2) {
-            mConversionType = "f to k";
+            mConvertedTemp = (mUserInput + 459.67) * 5/9;
+            mConversionType ="[K] = ([°F] + 459.67) x 5/9";
         }
 
         if (mFromTemp == 1 && mToTemp == 3) {
-            mConversionType = "f to r";
+            mConvertedTemp = (mUserInput + 459.67);
+            mConversionType = "[°R] = ([°F] + 459.67)";
         }
 
         if (mFromTemp == 2 && mToTemp == 0) {
-            mConversionType = "k to c";
+            mConvertedTemp = (mUserInput - 273.15);
+            mConversionType = "[°C] = [K] - 273.15";
         }
 
         if (mFromTemp == 2 && mToTemp == 1) {
-            mConversionType = "k to f";
+            mConvertedTemp = (mUserInput * 9/5 - 459.67);
+            mConversionType = "[°F] = ([K] x 9/5 - 459.67)";
         }
 
         if (mFromTemp == 2 && mToTemp == 3) {
-            mConversionType = "k to r";
+            mConvertedTemp = (mUserInput * 9/5);
+            mConversionType = "[°R] = ([K] x 9/5)";
         }
 
         if (mFromTemp == 3 && mToTemp == 0) {
-            mConversionType = "r to c";
+            mConvertedTemp = (mUserInput - 491.67) * 5/9;
+            mConversionType = "[°C] = ([°R] - 491.67) x 5/9";
         }
 
         if(mFromTemp == 3 && mToTemp == 1) {
-            mConversionType = "r to f";
+            mConvertedTemp = (mUserInput - 459.67);
+            mConversionType = "[°F] = ([°R] - 459.67)";
         }
 
         if (mFromTemp == 3 && mToTemp == 2) {
-            mConversionType = "r to k";
+            mConvertedTemp = (mUserInput * 5/9);
+            mConversionType = "[K] = ([°R] x 5/9)";
         }
     }
 
