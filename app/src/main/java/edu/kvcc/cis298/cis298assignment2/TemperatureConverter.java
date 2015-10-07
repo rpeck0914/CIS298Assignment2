@@ -49,45 +49,90 @@ public class TemperatureConverter extends AppCompatActivity {
     private ConversionCalculations convertTemps;
 
     private void UpdateSelectedTemps() {
-        if(mFromRadioGroup.getCheckedRadioButtonId() == mFromCelsius.getId()) {
-            mFromButtonSelected = 0;
-            mFromTempSymbol = "°C";
+
+        switch (mFromRadioGroup.getCheckedRadioButtonId()) {
+            case R.id.from_celsius:
+                mFromButtonSelected = 0;
+                mFromTempSymbol = "°C";
+                break;
+
+            case R.id.from_fahrenheit:
+                mFromButtonSelected = 1;
+                mFromTempSymbol = "°F";
+                break;
+
+            case R.id.from_kelvin:
+                mFromButtonSelected = 2;
+                mFromTempSymbol = "K";
+                break;
+
+            case R.id.from_rankin:
+                mFromButtonSelected = 3;
+                mFromTempSymbol = "°R";
+                break;
         }
 
-        if(mFromRadioGroup.getCheckedRadioButtonId() == mFromFahrenheit.getId()) {
-            mFromButtonSelected = 1;
-            mFromTempSymbol = "°F";
+        switch (mToRadioGroup.getCheckedRadioButtonId()) {
+            case R.id.to_celsius:
+                mToButtonSelected = 0;
+                mToTempSymbol = "°C";
+                break;
+
+            case R.id.to_fahrenheit:
+                mToButtonSelected = 1;
+                mToTempSymbol = "°F";
+                break;
+
+            case R.id.to_kelvin:
+                mToButtonSelected = 2;
+                mToTempSymbol = "K";
+                break;
+
+            case R.id.to_rankin:
+                mToButtonSelected = 3;
+                mToTempSymbol = "°R";
+                break;
         }
 
-        if(mFromRadioGroup.getCheckedRadioButtonId() == mFromKelvin.getId()) {
-            mFromButtonSelected = 2;
-            mFromTempSymbol = "K";
-        }
-
-        if(mFromRadioGroup.getCheckedRadioButtonId() == mFromRankin.getId()) {
-            mFromButtonSelected = 3;
-            mFromTempSymbol = "°R";
-        }
-
-        if(mToRadioGroup.getCheckedRadioButtonId() == mToCelsius.getId()) {
-            mToButtonSelected = 0;
-            mToTempSymbol = "°C";
-        }
-
-        if(mToRadioGroup.getCheckedRadioButtonId() == mToFahrenheit.getId()) {
-            mToButtonSelected = 1;
-            mToTempSymbol = "°F";
-        }
-
-        if(mToRadioGroup.getCheckedRadioButtonId() == mToKelvin.getId()) {
-            mToButtonSelected = 2;
-            mToTempSymbol = "K";
-        }
-
-        if(mToRadioGroup.getCheckedRadioButtonId() == mToRankin.getId()) {
-            mToButtonSelected = 3;
-            mToTempSymbol = "°R";
-        }
+//        if(mFromRadioGroup.getCheckedRadioButtonId() == mFromCelsius.getId()) {
+//            mFromButtonSelected = 0;
+//            mFromTempSymbol = "°C";
+//        }
+//
+//        if(mFromRadioGroup.getCheckedRadioButtonId() == mFromFahrenheit.getId()) {
+//            mFromButtonSelected = 1;
+//            mFromTempSymbol = "°F";
+//        }
+//
+//        if(mFromRadioGroup.getCheckedRadioButtonId() == mFromKelvin.getId()) {
+//            mFromButtonSelected = 2;
+//            mFromTempSymbol = "K";
+//        }
+//
+//        if(mFromRadioGroup.getCheckedRadioButtonId() == mFromRankin.getId()) {
+//            mFromButtonSelected = 3;
+//            mFromTempSymbol = "°R";
+//        }
+//
+//        if(mToRadioGroup.getCheckedRadioButtonId() == mToCelsius.getId()) {
+//            mToButtonSelected = 0;
+//            mToTempSymbol = "°C";
+//        }
+//
+//        if(mToRadioGroup.getCheckedRadioButtonId() == mToFahrenheit.getId()) {
+//            mToButtonSelected = 1;
+//            mToTempSymbol = "°F";
+//        }
+//
+//        if(mToRadioGroup.getCheckedRadioButtonId() == mToKelvin.getId()) {
+//            mToButtonSelected = 2;
+//            mToTempSymbol = "K";
+//        }
+//
+//        if(mToRadioGroup.getCheckedRadioButtonId() == mToRankin.getId()) {
+//            mToButtonSelected = 3;
+//            mToTempSymbol = "°R";
+//        }
 
     }
 
@@ -139,7 +184,7 @@ public class TemperatureConverter extends AppCompatActivity {
                 }
 
                 catch (MyExceptions e) {
-                    Toast.makeText(TemperatureConverter.this,"Please Selected Temperatures To Be Converted",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TemperatureConverter.this,"Please Select Temperatures To Be Converted",Toast.LENGTH_SHORT).show();
                 }
 
             }

@@ -2,6 +2,8 @@
 
 ## Author
 
+Robert Peck
+
 ## Description
 
 Create a temperature converter application.
@@ -29,4 +31,4 @@ The book does not cover how to do work with Radio Buttons. I will talk about it 
 
 ## Known Problems, Issues, And/Or Errors in the Program
 
-
+Everything is working fine. All exceptions I could think of are working as intended.
